@@ -1,20 +1,38 @@
 import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Divider, Form, Input } from 'antd';
+import { Button, Divider, Form, Input, message } from 'antd';
 import SocialLoginButton from '../components/Buttons/SocialLoginButton';
+import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from 'firebase/auth'
+import { auth } from '../configs/firebaseConfig';
 
 function Login() {
+    const [messageApi, contextHolder] = message.useMessage();
     const navigate = useNavigate();
 
-    const onFinish = (values) => {
-        console.log(process.env.API_URL);
-        console.log('Received values of form: ', values);
+    const onFinish = async (data) => {
+        try {
+            await setPersistence(auth, browserSessionPersistence)
+
+            const response = await signInWithEmailAndPassword(auth, data.email, data.password)
+            messageApi.open({
+                type: 'success',
+                content: 'login successful',
+            });
+
+            setTimeout(() => navigate('/'), 3000)
+        } catch (error) {
+            messageApi.open({
+                type: 'error',
+                content: error?.message || 'something went wrong',
+            });
+        }
     };
 
 
     return (
         <div className='login-main'>
+            {contextHolder}
             <h1 className='page-title'>Login</h1>
             <div className='login-form-holder'>
                 <Form
@@ -31,7 +49,7 @@ function Login() {
                         rules={[
                             {
                                 required: true,
-                                type : 'email',
+                                type: 'email',
                                 message: 'Please input your Email!',
                             },
                         ]}
@@ -65,6 +83,8 @@ function Login() {
                 <SocialLoginButton
                     provider='google'
                 />
+
+                <p>Dont have an account? <Link to={'/auth/register'}>register</Link></p>
             </div>
         </div>
     )

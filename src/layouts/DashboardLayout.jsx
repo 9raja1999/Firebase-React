@@ -10,12 +10,15 @@ import {
     VideoCameraOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 const { Header, Sider, Content } = Layout;
 
 
 const DashboardLayout = () => {
     const navigate = useNavigate()
+    const location = useLocation()
     const [collapsed, setCollapsed] = useState(false);
     const {
         token: { colorBgContainer, borderRadiusLG },
@@ -37,6 +40,7 @@ const DashboardLayout = () => {
         }
     }
 
+
     return (
         <Layout style={{
             minHeight: '100vh'
@@ -46,28 +50,22 @@ const DashboardLayout = () => {
                 <Menu
                     theme="dark"
                     mode="inline"
-                    defaultSelectedKeys={['1']}
+                    defaultSelectedKeys={[location.pathname]}
                     items={[
                         {
-                            key: '1',
+                            key: '/',
                             icon: <UserOutlined />,
                             label: 'Home',
                             onClick: () => handleClickNav('/')
                         },
                         {
-                            key: '2',
+                            key: '/posts',
                             icon: <VideoCameraOutlined />,
-                            label: 'Users',
+                            label: 'Posts',
                             onClick: () => handleClickNav('/posts')
                         },
                         {
                             key: '3',
-                            icon: <UploadOutlined />,
-                            label: 'nav 3',
-                            onClick: () => handleClickNav('/123')
-                        },
-                        {
-                            key: '4',
                             icon: <LogoutOutlined />,
                             label: 'Logout',
                             onClick: () => handleLogout()
@@ -92,6 +90,13 @@ const DashboardLayout = () => {
                             height: 64,
                         }}
                     />
+
+                    <Button
+                        onClick={() => {
+                        }}
+                    >
+                        CHANGE THEME
+                    </Button>
                 </Header>
                 <Content
                     style={{

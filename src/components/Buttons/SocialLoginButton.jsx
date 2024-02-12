@@ -1,6 +1,6 @@
 import React ,{useState} from 'react'
 import { useNavigate } from "react-router-dom";
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence } from 'firebase/auth'
 import { Button } from 'antd';
 import { auth } from '../../configs/firebaseConfig'
 
@@ -14,6 +14,8 @@ function SocialLoginButton() {
         
         try {
             setLoading(true)
+            await setPersistence(auth, browserSessionPersistence)
+
             const GoogleProvider = new GoogleAuthProvider()
             const result = await signInWithPopup(auth, GoogleProvider)
             setLoading(false)

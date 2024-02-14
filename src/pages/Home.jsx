@@ -1,6 +1,14 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItem, removeItem } from '../store/slices/todo.slice'
+import WithLoading from '../hoc/WithLoading'
+
+const Button = () => {
+  return <button>CLICK ME</button>
+}
+
+const ButtonWithLoading = WithLoading(Button)
+console.log(ButtonWithLoading);
 
 
 function Home() {
@@ -20,7 +28,8 @@ function Home() {
 
   return (
     <div>
-
+      <ButtonWithLoading isLoading={true} />
+      <Button />
       <form onSubmit={handleSubmit}>
         <input type="text" name='todo' />
         <button type='submit'>ADD TODO</button>

@@ -5,14 +5,14 @@ function useIsMobile() {
 
 
     useEffect(() => {
-        function handleResie() {
+        function handleResize() {
             setIsMobile(window.innerWidth < 550)
         }
 
-        window.addEventListener('resize', handleResie())
+        window.addEventListener('resize', handleResize())
 
         return () => {
-            window.removeEventListener('resize')
+            window.removeEventListener('resize', handleResize())
         }
 
     }, [])

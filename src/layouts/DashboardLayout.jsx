@@ -12,11 +12,15 @@ import {
 import { Layout, Menu, Button, theme } from 'antd';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import useIsMobile from '../hooks/useIsMobile';
 
 const { Header, Sider, Content } = Layout;
 
 
 const DashboardLayout = () => {
+    const { isMobile } = useIsMobile()
+
+
     const navigate = useNavigate()
     const location = useLocation()
     const [collapsed, setCollapsed] = useState(false);
@@ -91,12 +95,12 @@ const DashboardLayout = () => {
                         }}
                     />
 
-                    <Button
+                    {!isMobile && <Button
                         onClick={() => {
                         }}
                     >
                         CHANGE THEME
-                    </Button>
+                    </Button>}
                 </Header>
                 <Content
                     style={{

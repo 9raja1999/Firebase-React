@@ -12,7 +12,7 @@ import App from '../App'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import DashboardLayout from '../layouts/DashboardLayout'
-import Posts from '../pages/POsts'
+import Posts from '../pages/Posts'
 import NotFound from '../pages/NotFound'
 
 

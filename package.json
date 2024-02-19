@@ -1,6 +1,7 @@
 {
   "name": "firebase-integration",
   "private": true,
+  "homepage": "https://9raja1999.github.io/firebase-react/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

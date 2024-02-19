@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     createBrowserRouter,
+    createHashRouter,
     RouterProvider
 } from 'react-router-dom'
 // Router Mechanism Import
@@ -16,7 +17,7 @@ import Posts from '../pages/Posts'
 import NotFound from '../pages/NotFound'
 
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path : '/',
         element : <PrivateRoute>

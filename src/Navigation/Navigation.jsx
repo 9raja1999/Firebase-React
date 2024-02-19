@@ -57,9 +57,10 @@ const router = createBrowserRouter([
 
 function Navigation() {
     return (
-        <RouterProvider
-            router={router}
-        />
+        // <RouterProvider
+        //     router={router}
+        // />
+        <h1>HELLO</h1>
     )
 }
 

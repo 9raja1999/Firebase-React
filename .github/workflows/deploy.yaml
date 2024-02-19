@@ -40,6 +40,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
+          DEV: false
           API_KEY: AIzaSyA7uxqDUHLiJBKDf96xnErmrZiKxZSGOHE
           AUTH_DOMAIN: chatapp-632ea.firebaseapp.com
           DB_NAME: https://chatapp-632ea-default-rtdb.firebaseio.com

@@ -10,5 +10,5 @@ export default defineConfig({
   define: {
     'process.env': process.env
   },
-  base: "/firebase-react/"
+  base: process.env.DEV ? "/" : "/firebase-react/"
 })

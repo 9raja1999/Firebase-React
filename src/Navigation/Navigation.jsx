@@ -17,8 +17,8 @@ import Posts from '../pages/Posts'
 import NotFound from '../pages/NotFound'
 
 
-const router = createHashRouter([
-    {
+const router = createBrowserRouter([
+    {   
         path : '/',
         element : <PrivateRoute>
             <DashboardLayout />
@@ -52,7 +52,7 @@ const router = createHashRouter([
         path : '*',
         element : <NotFound />,
     }
-], {basename : '/firebase-react/'})
+], {basename : process.env.DEV ? '/' : '/firebase-react/'})
 
 
 function Navigation() {

@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         path : '*',
         element : <NotFound />,
     }
-])
+], {basename : process.env.DEV ? '/' : '/firebase-react/'})
 
 
 function Navigation() {

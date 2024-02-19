@@ -39,6 +39,14 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+        env:
+          API_KEY=AIzaSyA7uxqDUHLiJBKDf96xnErmrZiKxZSGOHE
+          AUTH_DOMAIN=chatapp-632ea.firebaseapp.com
+          DB_NAME=https://chatapp-632ea-default-rtdb.firebaseio.com
+          PROJECT_ID=chatapp-632ea
+          STORAGE_BUCKET=chatapp-632ea.appspot.com
+          MESSAGE_SENDER_ID=480343205415
+          APP_ID=1:480343205415:web:9d65028f1ea3f568115002
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

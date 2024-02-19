@@ -44,7 +44,7 @@ const DashboardLayout = () => {
         }
     }
 
-    console.log("EBVS", provess.env.AUTH_DOMAIN);
+    console.log("EBVS", process.env.AUTH_DOMAIN);
 
     return (
         <Layout style={{

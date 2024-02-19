@@ -19,10 +19,9 @@ import NotFound from '../pages/NotFound'
 const router = createBrowserRouter([
     {
         path : '/',
-        element : <DashboardLayout />,
-        // element : <PrivateRoute>
-        //     <DashboardLayout />
-        // </PrivateRoute>,
+        element : <PrivateRoute>
+            <DashboardLayout />
+        </PrivateRoute>,
         children : [
             {
                 path : '',

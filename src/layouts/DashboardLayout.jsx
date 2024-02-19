@@ -44,8 +44,7 @@ const DashboardLayout = () => {
         }
     }
 
-    console.log("EBVS", process.env.AUTH_DOMAIN);
-
+    console.log("Hi");
     return (
         <Layout style={{
             minHeight: '100vh'

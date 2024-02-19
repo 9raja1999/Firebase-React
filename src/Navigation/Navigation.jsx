@@ -18,49 +18,49 @@ import NotFound from '../pages/NotFound'
 
 
 const router = createBrowserRouter([
-    {   
-        path : '/',
-        element : <PrivateRoute>
+    {
+        path: '/',
+        element: <PrivateRoute>
             <DashboardLayout />
         </PrivateRoute>,
-        children : [
+        children: [
             {
-                path : '',
-                element : <App />
+                path: '',
+                element: <App />
             },
             {
-                path : '/posts',
-                element : <Posts />
+                path: '/posts',
+                element: <Posts />
             },
         ]
     },
     {
-        path : '/auth',
-        element : <AuthLayout />,
-        children : [
+        path: '/auth',
+        element: <AuthLayout />,
+        children: [
             {
-                path : '',
-                element : <Login />
+                path: '',
+                element: <Login />
             },
             {
-                path : 'register',
-                element : <Register />
+                path: 'register',
+                element: <Register />
             }
         ]
     },
     {
-        path : '*',
-        element : <NotFound />,
+        path: '*',
+        element: <NotFound />,
     }
-], {basename : process.env.REACT_APP_DEV ? '/' : '/firebase-react/'})
+], { basename: '/firebase-react/' })
 
 
 function Navigation() {
-  return (
-    <RouterProvider
-        router={router}
-    />
-  )
+    return (
+        <RouterProvider
+            router={router}
+        />
+    )
 }
 
 export default Navigation

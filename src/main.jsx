@@ -14,9 +14,9 @@ import store from './store/store.js'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
+      {/* SOME HOW */}
       <ThemeProvider>
-        {/* <Navigation /> */}
-        <h1>lklklk</h1>
+        <Navigation />
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,

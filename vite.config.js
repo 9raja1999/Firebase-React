@@ -10,5 +10,11 @@ export default defineConfig({
   define: {
     'process.env': process.env
   },
-  base: "/firebase-react/"
+  base: "/firebase-react/",
+  server : {
+    port : 8080,
+    strictPort : true,
+    host : true,
+    origin : "http://0.0.0.0:8080"
+  }
 })
